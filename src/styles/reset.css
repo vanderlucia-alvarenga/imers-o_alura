@@ -1,0 +1,133 @@
+/* Reset CSS */
+
+/* Box sizing border-box por padrão para todos os elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remover margens e preenchimentos padrão */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+li,
+figure,
+figcaption,
+blockquote,
+fieldset,
+legend,
+button,
+input,
+textarea,
+pre,
+code,
+address {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos padrão para o elemento body */
+body {
+  line-height: 1.6;
+}
+
+/* Remover list-style para listas não ordenadas e ordenadas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remover decoração de link padrão */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Tornar elementos de foco mais evidentes */
+a:focus,
+button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Adicionar uma redefinição mínima para elementos semânticos HTML5 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Tornar as imagens responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Limpar o estilo do campo do formulário */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Remover estilos de botão padrão */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Adicionar uma aparência padrão aos campos de formulário em alguns navegadores */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Corrigir o redimensionamento do textarea no IE */
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+/* Corrigir o bug de quebra de palavras no IE */
+pre {
+  white-space: pre-wrap;
+}
+
+/* Estilos mínimos para elementos de lista invertida (marcadores e números) */
+[dir="rtl"] ol {
+  list-style: none;
+}
+
+[dir="rtl"] ol ol {
+  list-style: decimal;
+}
+
+[dir="rtl"] ol ul,
+[dir="rtl"] ul ol,
+[dir="rtl"] ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
