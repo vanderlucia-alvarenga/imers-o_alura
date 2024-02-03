@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "msedge",
+            "name": "http://npm install typescript@2.3.2 --save-devnpm install @types/jquery@2.0.42 --save-devnpm install @types/lodash --save-devnpm install @types/underscore --save-dev# Servidor Web - lite-servernpm install lite-server@2.3.0 --save-devnpm install concurrently@3.4.0 --save-dev ",
+            "request": "launch",
+            "url": "http://npm install typescript@2.3.2 --save-devnpm install @types/jquery@2.0.42 --save-devnpm install @types/lodash --save-devnpm install @types/underscore --save-dev# Servidor Web - lite-servernpm install lite-server@2.3.0 --save-devnpm install concurrently@3.4.0 --save-dev "
+        }
+    ]
+}
