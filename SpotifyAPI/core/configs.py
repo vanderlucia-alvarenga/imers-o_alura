@@ -7,7 +7,7 @@ import secrets
 class Settings(BaseSettings):
 
     API_V1_STR: str = "/api"
-    DB_URL: ClassVar[str] = "mysql+aiomysql://thiagomares:Ferreira13@localhost:3306/musicas"
+    DB_URL: ClassVar[str] = "mysql+aiomysql://thiagomares:Ferreira13@localhost:3306/"
     DBBaseModel: ClassVar[DeclarativeMeta] = declarative_base()
 
     JWT_SECRET: str = ''
