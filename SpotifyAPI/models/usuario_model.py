@@ -11,4 +11,5 @@ class UsuarioModel(settings.DBBaseModel):
     username = Column(String(255), nullable=False)
     password = Column(String(255), nullable=False)
 
-    
+    def __repr__(self):
+        return f"<UsuarioModel(nome={self.nome}, username={self.username})>"
