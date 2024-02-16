@@ -9,7 +9,7 @@ class UsuarioModel(settings.DBBaseModel):
     id_usuario = Column(Integer, primary_key=True)
     nome = Column(String(255), nullable=False)
     username = Column(String(255), nullable=False)
-    password = Column(String(255), nullable=False)
+    pwd = Column(String(255), nullable=False)
 
     def __repr__(self):
         return f"<UsuarioModel(nome={self.nome}, username={self.username})>"

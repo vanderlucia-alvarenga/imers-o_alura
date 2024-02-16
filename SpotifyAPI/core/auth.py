@@ -9,28 +9,27 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from jose import jwt
 from models.usuario_model import UsuarioModel
 from core.configs import settings
-from core.security import verificar_senha
+from core.security import verify_password
 from pydantic import EmailStr
 
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl=f'{settings.API_V1_STR}/usr/login'
 )
 
-async def autenticar(email: EmailStr, senha: str, db: AsyncSession) -> Optional[UsuarioModel]:
-    async with db as sess:
-        try:
-            query = select(UsuarioModel).filter(UsuarioModel.email == email)
-            result = await sess.execute(query)
-            usuario: UsuarioModel = result.scalar().unique().one_or_none()
+async def autenticar(username: str, senha: str, db: AsyncSession) -> Optional[UsuarioModel]:
+    async with db as session:
+        query = select(UsuarioModel).filter(UsuarioModel.username == username)
+        result = await session.execute(query)
+        usuario: UsuarioModel = result.scalars().unique().one_or_none()
 
-            if not usuario:
-                return None
-            if not verificar_senha(senha, usuario.senha): return None
+        if not usuario:
+            return None
 
-        except Exception as e:
-            raise HTTPException(status_code=status.500_INTERNAL_SERVER_ERROR, detail="Erro ao autenticar o usuário")
-        finally:
-            return usuario
+        if not verify_password(senha, usuario.pwd):
+            return None
+
+        return usuario
+
 
 
 def cria_token(tipo_token: str, sub: str) -> str:
@@ -39,7 +38,7 @@ def cria_token(tipo_token: str, sub: str) -> str:
 
     payload['type'] = tipo_token
     payload['sub'] = str(sub)
-    return jwt.encode(payload, settings.JWT_secret, algorithm=settings.ALGORITHM)
+    return jwt.encode(payload, settings.JWT_SECRET, algorithm=settings.ALGORITHM)
 
-def cria_token_acesso(email: str) -> str:
-    return cria_token("access_token", email)
+def cria_token_acesso(sub: str) -> str:
+    return cria_token("access_token", sub)

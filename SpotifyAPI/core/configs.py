@@ -7,13 +7,13 @@ import secrets
 class Settings(BaseSettings):
 
     API_V1_STR: str = "/api"
-    DB_URL: ClassVar[str] = "mysql+aiomysql://thiagomares:Ferreira13@localhost:3306/"
+    DB_URL: ClassVar[str] = "mysql+aiomysql://thiagomares:Ferreira13@localhost:3306/musicas"
     DBBaseModel: ClassVar[DeclarativeMeta] = declarative_base()
 
     JWT_SECRET: str = ''
     ALGORITHM: str = 'HS256'
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
     class Config:
         case_sensitive = True
 
-settings = Settings()
-token = secrets.token_urlsafe(32)
+settings: Settings = Settings()

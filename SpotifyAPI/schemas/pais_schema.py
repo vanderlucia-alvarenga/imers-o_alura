@@ -4,7 +4,7 @@ from pydantic import BaseModel as SCBaseModel, HttpUrl
 class PaisBase(SCBaseModel):
         
         id_pais: int
-        nome: str
+        pais: str
         
         class Config:
             orm_mode = True

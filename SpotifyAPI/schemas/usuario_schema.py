@@ -6,7 +6,15 @@ class UsuarioBase(SCBaseModel):
     id_usuario: int
     nome: str
     username: str
-    password: str
+    pwd: str
+    
+    class Config:
+        orm_mode = True
+        
+class UsuarioLogin(SCBaseModel):
+    
+    username: str
+    pwd: str
     
     class Config:
         orm_mode = True

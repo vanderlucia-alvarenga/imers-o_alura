@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, Time
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.sqltypes import time
 from sqlalchemy.sql.schema import ForeignKey
 
 from core.configs import settings
